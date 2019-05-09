@@ -51,11 +51,17 @@ java HelloWorld
 
 
 **Generating .o files for different .c**
+
 HelloWorld2.c --> contains display2()
+	
 	↑
-HelloWorld1.c --> contains display1() calling display2() from **HelloWorld2.c**
+
+HelloWorld1.c --> contains display1() calling display2() from **HelloWorld2.c**	
+
 	↑
+
 HelloWorld.c  --> JNI C program calling display1(); 
+
 ```
 gcc -c -fPIC HelloWorld1.c -o HelloWorld1.o
 gcc -c -fPIC HelloWorld2.c -o HelloWorld2.o
@@ -66,7 +72,10 @@ gcc -c -fPIC HelloWorld.c -o HelloWorld.o
 	HelloWorld1.o 	HelloWorld2.o 	HelloWorld.o
 		|				|				|
 		|_______________|_______________|
+						
+
 						↓
+
 					finalHelloWorld.o
 ```
 ld -r HelloWorld1.o HelloWorld2.o HelloWorld.o -o finalHelloWorld.o
@@ -81,7 +90,9 @@ gcc HelloWorld.o -shared -o libHelloWorld.so
 
 
 ## [Additional Resources]
+
 [Resource 1](https://stackoverflow.com/questions/5963266/call-c-function-from-java)
+
 [Resource 2](https://ubuntuforums.org/showthread.php?t=1705911)
 
 
